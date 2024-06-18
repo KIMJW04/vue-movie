@@ -11,6 +11,7 @@ import MovieList from '@/components/MovieList.vue'
 const latestMovies = ref([])
 const page = ref(1)
 const apikey = import.meta.env.VITE_API_KEY
+console.log('API Key:', import.meta.env.VITE_API_KEY)
 
 const fetchMovies = async () => {
   try {
