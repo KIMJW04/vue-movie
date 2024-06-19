@@ -222,6 +222,7 @@ onUnmounted(() => {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    filter: blur(10px); /* 블러 효과 추가 */
   }
   @media(max-width:440px){
     padding: 10px;
