@@ -12,11 +12,25 @@ import {
   FaSearch,
   BiArrowUp,
   FaPlayCircle,
-  FaInfoCircle
+  FaInfoCircle,
+  FaArrowLeft,
+  FaAngleUp,
+  FaAngleDown
 } from 'oh-vue-icons/icons'
 
 // 필요한 아이콘 추가
-addIcons(FaFlag, RiZhihuFill, MdMoviefilterTwotone, FaSearch, BiArrowUp, FaPlayCircle, FaInfoCircle)
+addIcons(
+  FaFlag,
+  RiZhihuFill,
+  MdMoviefilterTwotone,
+  FaSearch,
+  BiArrowUp,
+  FaPlayCircle,
+  FaInfoCircle,
+  FaArrowLeft,
+  FaAngleUp,
+  FaAngleDown
+)
 
 const app = createApp(App)
 app.component('v-icon', OhVueIcon)

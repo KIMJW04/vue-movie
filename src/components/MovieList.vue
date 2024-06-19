@@ -4,7 +4,12 @@
       <div class="view__card style1">
         <ul>
           <li v-for="movie in movies" :key="movie.id">
-            <img :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" :alt="movie.title" />
+            <img
+              v-if="movie.poster_path"
+              :src="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+              :alt="movie.title"
+            />
+            <img v-else src="../assets/img/no-poster.jpg" :alt="movie.title" />
             <div class="overlay"></div>
             <div class="icons">
               <v-icon name="fa-play-circle" scale="2.5" @click="fetchVideo(movie.id)"></v-icon>
