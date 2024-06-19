@@ -222,13 +222,15 @@ onUnmounted(() => {
   font-family: 'nanumSquareNeo';
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
+  @media(max-width:1200px){
+    width: 100%;
+  }
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-
     h1 {
       background-color: #282626;
       padding: 5px 20px;
@@ -242,6 +244,34 @@ onUnmounted(() => {
       text-decoration: none;
       color: #007bff;
       font-size: 1rem;
+    }
+  }
+
+  @media(max-width:470px){
+    .header {
+      top: 20px;
+      left: 20px;
+      position: absolute;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-bottom: 20px;
+      h1 {
+        display: none;
+        background-color: #282626;
+        padding: 5px 20px;
+        border-radius: 50px;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      a {
+        scale: 0.8;
+        text-decoration: none;
+        color: #007bff;
+        font-size: 1rem;
+      }
     }
   }
 
@@ -328,6 +358,95 @@ onUnmounted(() => {
         border-radius: 5px;
         cursor: pointer;
         font-family: 'nanumSquareNeo';
+      }
+    }
+  }
+  @media(max-width:600px){
+    .overview {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-right: 20px;
+      }
+
+      .info {
+        flex: 1;
+        width: 100%;
+        .desc {
+          margin: 0;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; /* 최대 2줄까지만 보이도록 설정 */
+          -webkit-box-orient: vertical;
+          &.truncated {
+            -webkit-line-clamp: unset;
+            display: block;
+          }
+        }
+
+        p {
+          width: 100%;
+          margin: 10px 0;
+          font-size: 1rem;
+          line-height: 1.5;
+        }
+
+        .read-more-btn {
+          background: none;
+          border: none;
+          color: #007bff;
+          cursor: pointer;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        span {
+          margin-right: 10px;
+        }
+
+        .average {
+          display: flex;
+          align-items: center;
+          .stars {
+            display: flex;
+            align-items: center;
+            i {
+              margin-right: 5px;
+            }
+            .filled {
+              color: #ffcc00;
+            }
+            .fa-star-half-alt {
+              color: #ffcc00;
+            }
+            .far {
+              color: #ccc;
+            }
+          }
+          em {
+            margin-left: 10px;
+          }
+        }
+
+        button {
+          padding: 10px 20px;
+          font-size: 1rem;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-family: 'nanumSquareNeo';
+        }
       }
     }
   }
