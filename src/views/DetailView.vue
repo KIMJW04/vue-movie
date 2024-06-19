@@ -495,7 +495,6 @@ onUnmounted(() => {
 
   .details {
     margin-bottom: 20px;
-
     h2 {
       font-size: 1.5rem;
       margin-bottom: 10px;
@@ -546,7 +545,6 @@ onUnmounted(() => {
 
   .media, .recommendations {
     margin-top: 20px;
-
     h2 {
       font-size: 1.5rem;
       margin-bottom: 10px;
@@ -571,6 +569,36 @@ onUnmounted(() => {
         text-align: center;
       }
     }
+  }
+
+  /* WebKit 기반 브라우저에서 스크롤바 배경색 없애기 */
+  .details .slider::-webkit-scrollbar,
+  .media .related-videos::-webkit-scrollbar,
+  .recommendations .recommendation-list::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  .details .slider::-webkit-scrollbar-track,
+  .media .related-videos::-webkit-scrollbar-track,
+  .recommendations .recommendation-list::-webkit-scrollbar-track {
+    background: transparent; /* 스크롤바 트랙의 배경색을 투명하게 설정 */
+  }
+
+  .details .slider::-webkit-scrollbar-thumb,
+  .media .related-videos::-webkit-scrollbar-thumb,
+  .recommendations .recommendation-list::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바 색상 */
+    border-radius: 10px;
+    border: 3px solid transparent; /* 스크롤바 주위에 투명한 테두리를 추가하여 배경색이 보이지 않도록 설정 */
+    background-clip: content-box;
+  }
+
+  /* Firefox에서 스크롤바 배경색 없애기 */
+  .details .slider,
+  .media .related-videos,
+  .recommendations .recommendation-list {
+    scrollbar-color: #888 transparent; /* 스크롤바 색상과 배경색을 설정 */
   }
 
   .modal {
