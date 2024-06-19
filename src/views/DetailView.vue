@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div class="sp_bg" :style="{ backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.backdrop_path})` }"></div>
     <div class="detail-view">
       <div class="header">
         <h1>{{ movie.title }}</h1>
@@ -14,8 +15,8 @@
           <button v-if="isTruncated" class="read-more-btn" @click="toggleDescription">
             <v-icon :name="showFullDescription ? 'fa-angle-up' : 'fa-angle-down'" scale="1.5"></v-icon>
           </button>
-          <p><strong>개봉일:</strong> {{ movie.release_date }}</p>
-          <p><strong>평점:</strong>
+          <p><strong>개봉일 :</strong> {{ movie.release_date }}</p>
+          <p class="av__ss"><strong>평점 :</strong>
             <div class="average">
               <div class="stars">
                 <i
@@ -24,8 +25,6 @@
                   class="fa-star"
                   :class="getStarClass(movie.vote_average, n)"
                 ></i>
-                <em v-if="movie.vote_average">{{ movie.vote_average.toFixed(1) }}</em>
-                <em v-else>평점 없음</em>
               </div>
             </div>
           </p>
@@ -110,6 +109,7 @@ onMounted(async () => {
       `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=ko-KR`
     )
     movie.value = movieResponse.data
+    console.log(movie.value)
 
     // Fetch movie credits
     const creditsResponse = await axios.get(
@@ -212,18 +212,42 @@ onUnmounted(() => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  .sp_bg {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  @media(max-width:440px){
+    padding: 10px;
+  }
+  @media(max-width:440px){
+    padding: 2px;
+  }
 }
 
 .detail-view {
+  position: relative;
+  z-index: 10;
   width: 1200px;
   color: var(--white);
   padding: 20px;
   margin: auto;
   font-family: 'nanumSquareNeo';
-  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   @media(max-width:1200px){
     width: 100%;
+  }
+  @media(max-width:440px){
+    padding: 10px;
+  }
+  @media(max-width:440px){
+    padding: 2px;
   }
 
   .header {
@@ -232,12 +256,12 @@ onUnmounted(() => {
     align-items: center;
     margin-bottom: 20px;
     h1 {
-      background-color: #282626;
       padding: 5px 20px;
       border-radius: 50px;
       font-size: 1.6rem;
       font-weight: 700;
       margin: 0;
+      background-color: var(--black200);
     }
 
     a {
@@ -258,7 +282,6 @@ onUnmounted(() => {
       margin-bottom: 20px;
       h1 {
         display: none;
-        background-color: #282626;
         padding: 5px 20px;
         border-radius: 50px;
         font-size: 1.6rem;
@@ -281,13 +304,16 @@ onUnmounted(() => {
     margin-bottom: 20px;
 
     img {
-      width: 200px;
+      width: 250px;
       height: auto;
       border-radius: 8px;
       margin-right: 20px;
     }
 
     .info {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: var(--black200);
       flex: 1;
       width: 70%;
       .desc {
@@ -301,12 +327,24 @@ onUnmounted(() => {
           display: block;
         }
       }
+      .av__ss{
+        display: flex;
+        strong{
+          margin-right: 10px;
+        }
+      }
 
       p {
         width: 70%;
         margin: 10px 0;
         font-size: 1rem;
         line-height: 1.5;
+        @media(max-width:1180px){
+          width: 100%;
+        }
+        @media(max-width:960px){
+          font-size: 14px;
+        }
       }
 
       .read-more-btn {
@@ -358,6 +396,9 @@ onUnmounted(() => {
         border-radius: 5px;
         cursor: pointer;
         font-family: 'nanumSquareNeo';
+        @media(max-width:960px){
+          font-size: 14px;
+        }
       }
     }
   }
