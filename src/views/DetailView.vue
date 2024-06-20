@@ -109,7 +109,6 @@ onMounted(async () => {
       `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}&language=ko-KR`
     )
     movie.value = movieResponse.data
-    console.log(movie.value)
 
     // Fetch movie credits
     const creditsResponse = await axios.get(
@@ -141,6 +140,7 @@ onMounted(async () => {
     relatedVideos.value = videosResponse.data.results.filter(
       (video) => video.type !== 'Trailer' && video.site === 'YouTube'
     )
+    console.log(relatedVideos)
 
     // Fetch recommendations
     const recommendationsResponse = await axios.get(
