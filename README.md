@@ -1,5 +1,6 @@
 # Vue 영화 웹
-[사이트 링크](https://miento-vue-movie.netlify.app)
+
+[사이트 링크](https://miento-movie.web.app/)
 
 이 프로젝트는 Vue.js를 사용하여 영화 정보를 표시하는 애플리케이션입니다. TMDb(The Movie Database) API를 사용하여 영화 세부 정보, 예고편, 관련 영상 및 추천 영화를 가져옵니다.
 

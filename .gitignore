@@ -30,3 +30,7 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# firebase
+.firebase
+.firebase.json
