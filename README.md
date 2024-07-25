@@ -1,10 +1,15 @@
 # Vue 영화 웹
 
+<img src="/img/KIM_FOX01.png">
+
 [사이트 링크](https://miento-movie.web.app/)
 
 이 프로젝트는 Vue.js를 사용하여 영화 정보를 표시하는 애플리케이션입니다. TMDb(The Movie Database) API를 사용하여 영화 세부 정보, 예고편, 관련 영상 및 추천 영화를 가져옵니다.
 
 ## 주요 기능
+
+<img src="/img/KIM_FOX02.png">
+<img src="/img/KIM_FOX03.png">
 
 - 영화 제목, 개봉일, 평점, 상영 시간 및 장르 등의 세부 정보 표시
 - 출연진 및 제작진 목록 표시
